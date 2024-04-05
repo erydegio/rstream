@@ -34,3 +34,7 @@ class AMQPMessageCython(message_faster.Message, _MessageProtocol):
 
     def __bytes__(self) -> bytes:
         return cast(bytes, self.marshal_c())
+
+
+def amqp_decoder_cython(data: bytes) -> AMQPMessageCython:
+    return message_faster.Message().unmarshal_c(data)

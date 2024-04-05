@@ -20,7 +20,7 @@ async def publish():
 
         for i in range(MESSAGES):
             amqp_message = AMQPMessageCython(
-                body=b"hello",
+                body=b"hello cython",
             )
             # send is asynchronous
             await producer.send(stream=STREAM, message=amqp_message)
